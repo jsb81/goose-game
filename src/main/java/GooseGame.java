@@ -78,7 +78,7 @@ public class GooseGame implements IGooseGame {
     }
 
     private String playerBridge(String resultMove) {
-        resultMove = resultMove.replace("$FINAL_POS", (currentPlayer.getPosition() > FINAL_SPACE ? FINAL_SPACE + "" : currentPlayer.getPosition() + ""));
+        resultMove = resultMove.replace("$FINAL_POS", (currentPlayer.getPosition() == BRIDGE_SPACE_START ? "The Bridge" : currentPlayer.getPosition() + ""));
         currentPlayer.setPosition(BRIDGE_SPACE_FINAL);
         return resultMove;
     }
