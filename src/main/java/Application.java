@@ -14,7 +14,7 @@ public class Application {
     }
 
     public void start() throws Exception {
-        server = new Server(333);
+        server = new Server(9090);
         ServletContextHandler servletContextHandler = new ServletContextHandler();
         servletContextHandler.addServlet(new ServletHolder(new HttpHelloWorldSercice()), "/hello");
 

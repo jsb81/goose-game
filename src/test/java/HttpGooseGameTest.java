@@ -21,7 +21,7 @@ public class HttpGooseGameTest {
     @Test
     public void prova_chiamata_http() {
         try {
-            String url = "http://localhost:333/goose/players?name=Pippo";
+            String url = "http://localhost:9090/goose/players?name=Pippo";
 
             Assert.assertEquals("players: Pippo", httpServer.httpPost(url));
 
@@ -33,9 +33,9 @@ public class HttpGooseGameTest {
     @Test
     public void prova_chiamata_http_two_players() {
         try {
-            httpServer.httpPost("http://localhost:333/goose/players?name=Pippo");
+            httpServer.httpPost("http://localhost:9090/goose/players?name=Pippo");
 
-            Assert.assertEquals("players: Pippo, Pluto", httpServer.httpPost("http://localhost:333/goose/players?name=Pluto"));
+            Assert.assertEquals("players: Pippo, Pluto", httpServer.httpPost("http://localhost:9090/goose/players?name=Pluto"));
 
         } catch (Exception e) {
             System.out.println(e);
@@ -45,10 +45,10 @@ public class HttpGooseGameTest {
     @Test
     public void prova_chiamata_http_move_player() {
         try {
-            httpServer.httpPost("http://localhost:333/goose/players?name=Pippo");
-            httpServer.httpPost("http://localhost:333/goose/players?name=Pluto");
+            httpServer.httpPost("http://localhost:9090/goose/players?name=Pippo");
+            httpServer.httpPost("http://localhost:9090/goose/players?name=Pluto");
 
-            Assert.assertEquals("Pippo rolls 4, 5. Pippo moves from Start to 9", httpServer.httpPost("http://localhost:333/goose/move?name=Pippo&dice1=4&dice2=5"));
+            Assert.assertEquals("Pippo rolls 4, 5. Pippo moves from Start to 9", httpServer.httpPost("http://localhost:9090/goose/move?name=Pippo&dice1=4&dice2=5"));
 
         } catch (Exception e) {
             System.out.println(e);
