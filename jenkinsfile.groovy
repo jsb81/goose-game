@@ -15,4 +15,7 @@ node {
         sh "mvn -Dmaven.test.skip=true package"
         archiveArtifacts artifacts: "target/goosegame-1.0-SNAPSHOT-jar-with-dependencies.jar", fingerprint: true
     }
+    stage('Build Docker file'){
+        sh "docker build -t goose-game ."
+    }
 }
