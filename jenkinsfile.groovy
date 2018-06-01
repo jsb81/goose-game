@@ -13,6 +13,6 @@ node {
     }
     stage('Build Artifact'){
         sh "mvn -Dmaven.test.skip=true package"
-        archiveArtifacts artifacts: "target/goose-game-1.0-SNAPSHOT-jar-with-dependencies.jar", fingerprint: true
+        archiveArtifacts artifacts: "target/goosegame-1.0-SNAPSHOT-jar-with-dependencies.jar", fingerprint: true
     }
 }
