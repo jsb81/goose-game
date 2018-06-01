@@ -5,6 +5,7 @@ node {
     }
     stage ('Unit tests'){
         sh "mvn clean test"
+        junit "target/surefire-reports/**/*.xml"
     }
     stage('Integration test'){
         echo 'qui dovrei lanciare i test di integrazione'
