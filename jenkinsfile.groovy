@@ -11,4 +11,8 @@ node {
         echo 'qui dovrei lanciare i test di integrazione'
         // sh "mvn test.compile failsafe:integration-test"
     }
+    stage('Build Artifact'){
+        sh "mvn -Dmaven.test.skip=true package"
+        archiveArtifacts artifacts: "target/goose-game-1.0-SNAPSHOT-jar-with-dependencies.jar", fingerprint: true
+    }
 }
