@@ -16,6 +16,6 @@ node {
         archiveArtifacts artifacts: "target/goosegame-1.0-SNAPSHOT-jar-with-dependencies.jar", fingerprint: true
     }
     stage('Build Docker file'){
-        sh "docker build -t goose-game ."
+        sh "docker build -t goose-game:{$env.BuildNumber} ."
     }
 }
